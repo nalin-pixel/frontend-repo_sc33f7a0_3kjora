@@ -1,5 +1,6 @@
 import Spline from '@splinetool/react-spline'
 import { ArrowRight, Sparkles } from 'lucide-react'
+import MagneticButton from './MagneticButton'
 
 function Hero() {
   return (
@@ -20,29 +21,36 @@ function Hero() {
               Interactive 3D. Premium UI. Real impact.
             </div>
 
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              UI studio
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-400"> — Design & Development</span>
+            <h1 className="mt-4 text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              We design and build
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-400"> products people love</span>
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-              We craft bold, futuristic digital products. From brand to build, we blend
-              world‑class design with solid engineering to ship experiences people love.
+              UI studio is a design–engineering duo crafting expressive brands, web apps, and immersive 3D experiences.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a href="#contact" className="inline-flex items-center justify-center rounded-xl bg-gradient-to-br from-purple-600 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_60px_-20px_rgba(99,102,241,0.7)] transition-transform hover:scale-[1.02]">
-                Start a project
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              <MagneticButton className="px-6 py-3 text-sm">
+                Start a project <ArrowRight className="h-4 w-4" />
+              </MagneticButton>
               <a href="#work" className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 hover:text-white">See our work</a>
             </div>
           </div>
 
-          {/* Right: Spline 3D scene */}
+          {/* Right: Spline 3D scene with floating chips */}
           <div className="relative h-[380px] w-full sm:h-[480px] lg:h-[560px]">
             <div className="absolute -inset-8 -z-10 rounded-[40px] bg-gradient-to-br from-purple-500/20 via-fuchsia-500/10 to-blue-500/20 blur-2xl" />
             <div className="h-full w-full overflow-hidden rounded-3xl border border-white/10 bg-black/50">
               <Spline scene="https://prod.spline.design/wwTRdG1D9CkNs368/scene.splinecode" />
+            </div>
+
+            {/* floating label chips */}
+            <div className="pointer-events-none absolute left-3 top-3 hidden gap-2 sm:flex">
+              {['Design', '3D', 'Engineering'].map((t, i) => (
+                <span key={t} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70 backdrop-blur" style={{ transform: `translateY(${i * 2}px)`}}>
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
         </div>
